@@ -52,7 +52,7 @@ combo_t key_combos[COMBO_COUNT] = {
 #define OSM_ALT  OSM(MOD_LALT)
 #define OSM_CTL  OSM(MOD_LCTL)
 #define OSM_SFT  OSM(MOD_LSFT)
-#define RSE_SPC  LT(_RAISE, KC_SPC)
+#define RSE_BSPC  LT(_RAISE, KC_BSPC)
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
  OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                     KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,OSL_FUN ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         OSM_CTL, GUI_ENT, LOW_TAB,    RSE_SPC ,KC_SLEP ,OSM_SFT
+                                         OSM_CTL, GUI_ENT, LOW_TAB,    RSE_BSPC,KC_SPC ,OSM_SFT
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_LT  , KC_GT  , KC_COPY, KC_PSTE, KC_SCLN,                      KC_MPLY, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
+                                          CTL_ESC,G(KC_ENT),XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS\
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -111,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-      case LT(_RAISE, KC_SPC):
+      case LT(_RAISE, KC_BSPC):
             return TAPPING_TERM_THUMB;
       case LT(_LOWER, KC_TAB):
             return TAPPING_TERM_THUMB;
